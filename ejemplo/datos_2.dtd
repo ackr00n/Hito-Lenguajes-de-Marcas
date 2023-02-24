@@ -1,0 +1,9 @@
+<!ELEMENT notes (note)*>
+<!ELEMENT note (participants, heading, content)>
+<!ELEMENT participants (to, from)>
+<!ELEMENT to (#PCDATA)>
+<!ELEMENT from (#PCDATA)>
+<!ELEMENT heading (#PCDATA)>
+<!ELEMENT content (message, attachments)>
+<!ELEMENT message (#PCDATA)>
+<!ELEMENT attachments (#PCDATA)>

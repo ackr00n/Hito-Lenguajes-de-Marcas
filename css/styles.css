@@ -1,0 +1,50 @@
+/* Formato de titulos*/
+h1{
+    text-align: center;
+    
+}
+/* Damos color al body completo para que no sea blanco*/
+body{
+
+    background-color:  azure;
+}
+/*alineamos las tablas de cliente y pedidos */
+table,th,td{
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    
+}
+
+/* Cuando pasemos el cursor por el menu cambiara el tamaño de la funte para dar ese efecto de seleccion*/
+nav a:hover {
+    font-size: 15px;
+    
+  
+}
+
+td{
+    
+}
+
+.col-auto{
+    text-align: center;
+}
+#selector{
+    margin-left: 100px;
+}
+
+#tabla_factura{
+    text-align: center;
+}
+
+menu a:hover{
+    background-color: black;
+    color: aliceblue;
+
+}
+@media (max-width: 800px) {
+
+    table{
+      font-size: 10px;
+    }
+  }

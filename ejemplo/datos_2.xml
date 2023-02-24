@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<notes>
+    <note>
+        <participants>
+            <to> A:  </to>
+            <from> De:  </from>
+        </participants>
+        <heading> Tipo:  </heading>
+        <content>
+            <message> Mensaje:  </message>
+            <attachments> Adjuntos:  </attachments>
+        </content>
+    </note>
+    <note>
+        <participants>
+            <to> Antonio </to>
+            <from> Cristina </from>
+        </participants>
+        <heading> Recordatorio </heading>
+        <content>
+            <message> No olvides mirar la beca </message>
+            <attachments> Ninguno </attachments>
+        </content>
+    </note>
+    <note>
+        <participants>
+            <to> Alicia </to>
+            <from> Alberto </from>
+        </participants>
+        <heading> Recordatorio </heading>
+        <content>
+            <message> Envíame el hito!! </message>
+            <attachments> Ninguno </attachments>
+        </content>
+    </note>
+    <note>
+        <participants>
+            <to> Pedro </to>
+            <from> Sonia </from>
+        </participants>
+        <heading> Petición </heading>
+        <content>
+            <message> Por favor, necesito que me envíes la documentación </message>
+            <attachments> Archivo_original </attachments>
+        </content>
+    </note>
+    <note>
+        <participants>
+            <to> Juan </to>
+            <from> Alberto </from>
+        </participants>
+        <heading> Recordatorio </heading>
+        <content>
+            <message> Falta el archivo del código </message>
+            <attachments> Ninguno </attachments>
+        </content>
+    </note>
+    <note>
+        <participants>
+            <to> Andrés </to>
+            <from> Cristina </from>
+        </participants>
+        <heading> Petición </heading>
+        <content>
+            <message> Envíame los datos, por favor </message>
+            <attachments> Ninguno </attachments>
+        </content>
+    </note>
+</notes>

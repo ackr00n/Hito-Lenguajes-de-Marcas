@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hito Individual</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <div id = "menu">
+        <nav class="navbar bg-dark" data-bs-theme="dark">
+            
+          
+            <nav class="navbar navbar-expand-lg bg-body-tertiary">
+                <div class="container-fluid">
+                <a class="navbar-brand" href="index.html">Clientes</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav" >
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="pedidos.html">Pedidos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="facturas.html">Facturas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="trimestre.html">Trimestres</a>
+                    </li>
+                    
+                    
+                    </ul>
+                </div>
+                </div>
+            </nav>
+        </nav>
+    </div>
+    <h1>Factura</h1>
+    <br><br>
+    <div class="div_formulario">
+        <form class="formulario">
+            <fieldset>
+                <label for="idnumber">Seleciona el numero de factura: </label>
+                <input type="number" id="number" name="number">
+                <button type="submit" id="submit">Submit</button>
+            </fieldset>
+        </form>
+        <table class="tabla_factura">
+            <th class="header_tabla">Buscador de factura</th>
+            
+            <tr>
+                <td>Numero Pedido: </td>
+                <td id="num_pedido"></td>
+            </tr>
+            
+            <tr>
+                <td>Nombre: </td>
+                <td id="nombre"></td>
+            </tr>
+            <tr>
+                <td>Apellidos: </td>
+                <td id="apellidos"></td>
+            </tr>
+            <tr>
+                <td>Articulo: </td>
+                <td id="articulo"></td>
+            </tr>
+            <tr>
+                <td>Teléfono: </td>
+                <td id="telefono"></td>
+            </tr>
+            <tr>
+                <td>Calle: </td>
+                <td id="calle"></td>
+            </tr>
+            <tr>
+                <td>Ciudad: </td>
+                <td id="ciudad"></td>
+            </tr>
+            
+            <tr>
+                <td>Email: </td>
+                <td id="correo"></td>
+            </tr>
+          
+            
+            <tr>
+                <td>Total factura: </td>
+                <td id="total"></td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        const xhr = new XMLHttpRequest();
+        xhr.open("GET", "tienda.xml", true);
+
+        window.addEventListener("load", function () {
+            const xhr = new XMLHttpRequest();
+            xhr.open("GET", "tienda.xml", true);
+
+            xhr.onreadystatechange = function () {
+                if (this.readyState === 4 && this.status === 200) {
+                    const xmlDoc = this.responseXML;
+                    const numberSpan = document.querySelector("#number");
+                    const pedidos = xmlDoc.getElementsByTagName("pedidos");
+                    numberSpan.innerHTML = pedidos.length - 1;
+                }
+            };
+
+            xhr.send();
+        });
+
+
+        xhr.onreadystatechange = function () {
+            if (this.readyState === 4 && this.status === 200) {
+                const xmlDoc = this.responseXML;
+                const form = document.querySelector("formulario");
+
+                form.addEventListener("submit", function (event) {
+                    event.preventDefault();
+                    const idNumber = document.querySelector("num_pedido").value;
+                    const pedidos = xmlDoc.getElementsByTagName("pedidos");
+                    if (idNumber < 1 || idNumber > (pedidos.length - 1)) {
+                        document.querySelector("#nombre").innerHTML = "";
+                        document.querySelector("#apellidos").innerHTML = "";
+                        document.querySelector("#num_pedido").innerHTML = "";
+                        document.querySelector("#telefono").innerHTML = "";
+                        document.querySelector("#ciudad").innerHTML = "";
+                        document.querySelector("#correo").innerHTML = "";
+                        document.querySelector("#total").innerHTML = ""; 
+                        log.innerHTML = "No se encontró una nota con ese número";
+                        return;
+                    }
+                    const pedido = pedidos[idNumber-1];
+                    const numero = pedido.getElementsByTagName("num_pedido")[0].childNodes[0].nodeValue;
+                    const nombre = pedido.getElementsByTagName("nombre")[0].childNodes[0].nodeValue;
+                    const apellido = pedido.getElementsByTagName("apellidos")[0].childNodes[0].nodeValue;
+                    const telefono = pedido.getElementsByTagName("telefono")[0].childNodes[0].nodeValue;
+
+                    const ciudad = pedido.getElementsByTagName("ciudad")[0].childNodes[0].nodeValue;
+                    const email = pedido.getElementsByTagName("correo")[0].childNodes[0].nodeValue;
+                    const total = pedido.getElementsByTagName("total")[0].childNodes[0].nodeValue; 
+
+
+                    document.querySelector("#num_pedido").innerHTML = numero;
+                    document.querySelector("#nombre").innerHTML = nombre;
+                    document.querySelector("#apellidos").innerHTML = apellido;
+                    document.querySelector("#telefono").innerHTML = telefono;
+                    document.querySelector("#ciudad").innerHTML = ciudad;
+                    document.querySelector("#correo").innerHTML = email;
+                    document.querySelector("#total").innerHTML = total;
+                });
+            }
+        };
+        xhr.send();
+    </script>
+
+</body>
+
+</html>

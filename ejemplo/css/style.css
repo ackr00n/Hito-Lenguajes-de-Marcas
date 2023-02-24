@@ -1,0 +1,26 @@
+body, h1, h2, h3, h4, h5, h6, span{
+    font-family: 'Bree Serif', serif;
+    }
+
+    .titulo {
+        font-family: "Arial Narrow", Arial, sans-serif;
+        font-size: 12px;
+        white-space: pre;
+    }
+
+    table {
+        border: 0px;
+        border-spacing: 0px;
+        border-collapse: collapse;
+    }
+    td, th {
+        padding: 0px;
+        border: 0px;
+        margin: 0px;
+    }
+    .borde {
+        border-style: solid;
+        border-width: 1px;
+        border-color: black;
+        padding-bottom: 3px;
+    }
